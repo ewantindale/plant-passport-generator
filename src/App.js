@@ -5,12 +5,14 @@ import eu from "./images/eu.png";
 
 function App() {
   const [a, setA] = useState("");
-  const [b, setB] = useState("");
+  const [b, setB] = useState(localStorage.getItem("plant_passport_b") || "");
   const [c, setC] = useState("");
   const [d, setD] = useState("");
 
   const generatePDF = (e) => {
     e.preventDefault();
+
+    localStorage.setItem("plant_passport_b", b);
 
     const doc = new jsPDF({ unit: "pt" });
 
