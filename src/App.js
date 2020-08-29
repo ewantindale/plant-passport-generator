@@ -4,18 +4,13 @@ import "./App.css";
 import eu from "./images/eu.png";
 
 function App() {
-  const [a, setA] = useState(localStorage.getItem("plant_passport_a") || "");
-  const [b, setB] = useState(localStorage.getItem("plant_passport_b") || "");
-  const [c, setC] = useState(localStorage.getItem("plant_passport_c") || "");
-  const [d, setD] = useState(localStorage.getItem("plant_passport_d") || "");
+  const [a, setA] = useState("");
+  const [b, setB] = useState("");
+  const [c, setC] = useState("");
+  const [d, setD] = useState("");
 
   const generatePDF = (e) => {
     e.preventDefault();
-
-    localStorage.setItem("plant_passport_a", a);
-    localStorage.setItem("plant_passport_b", b);
-    localStorage.setItem("plant_passport_c", c);
-    localStorage.setItem("plant_passport_d", d);
 
     const doc = new jsPDF({ unit: "pt" });
 
@@ -52,7 +47,6 @@ function App() {
             name="a"
             value={a}
             onChange={(e) => setA(e.target.value)}
-            placeholder="Botanical names"
           />
 
           <label htmlFor="c">C </label>
@@ -61,7 +55,6 @@ function App() {
             name="c"
             value={c}
             onChange={(e) => setC(e.target.value)}
-            placeholder="Traceability code"
           />
         </div>
         <div>
@@ -71,7 +64,6 @@ function App() {
             name="b"
             value={b}
             onChange={(e) => setB(e.target.value)}
-            placeholder="Country code of issuer"
           />
           <label htmlFor="d">D </label>
           <input
@@ -79,7 +71,6 @@ function App() {
             name="d"
             value={d}
             onChange={(e) => setD(e.target.value)}
-            placeholder="Country of origin code"
           />
         </div>
         <div>
