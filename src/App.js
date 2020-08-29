@@ -4,13 +4,18 @@ import "./App.css";
 import eu from "./images/eu.png";
 
 function App() {
-  const [a, setA] = useState("");
-  const [b, setB] = useState("");
-  const [c, setC] = useState("");
-  const [d, setD] = useState("");
+  const [a, setA] = useState(localStorage.getItem("plant_passport_a") || "");
+  const [b, setB] = useState(localStorage.getItem("plant_passport_b") || "");
+  const [c, setC] = useState(localStorage.getItem("plant_passport_c") || "");
+  const [d, setD] = useState(localStorage.getItem("plant_passport_d") || "");
 
   const generatePDF = (e) => {
     e.preventDefault();
+
+    localStorage.setItem("plant_passport_a", a);
+    localStorage.setItem("plant_passport_b", b);
+    localStorage.setItem("plant_passport_c", c);
+    localStorage.setItem("plant_passport_d", d);
 
     const doc = new jsPDF({ unit: "pt" });
 
@@ -38,38 +43,43 @@ function App() {
     <div className="App">
       <h1>Plant Passport Generator</h1>
       <h4>Enter the values you want and then click Generate PDF.</h4>
+
       <form onSubmit={generatePDF}>
         <div>
-          <label for="a">A </label>
+          <label htmlFor="a">A </label>
           <input
             type="text"
             name="a"
             value={a}
             onChange={(e) => setA(e.target.value)}
+            placeholder="Botanical names"
           />
 
-          <label for="c">C </label>
+          <label htmlFor="c">C </label>
           <input
             type="text"
             name="c"
             value={c}
             onChange={(e) => setC(e.target.value)}
+            placeholder="Traceability code"
           />
         </div>
         <div>
-          <label for="b">B </label>
+          <label htmlFor="b">B </label>
           <input
             type="text"
             name="b"
             value={b}
             onChange={(e) => setB(e.target.value)}
+            placeholder="Country code of issuer"
           />
-          <label for="d">D </label>
+          <label htmlFor="d">D </label>
           <input
             type="text"
             name="d"
             value={d}
             onChange={(e) => setD(e.target.value)}
+            placeholder="Country of origin code"
           />
         </div>
         <div>
@@ -78,6 +88,12 @@ function App() {
           </button>
         </div>
       </form>
+      <a
+        href="https://planthealthportal.defra.gov.uk/assets/uploads/Plant-Passport-Introductory-Guide.pdf"
+        style={{ marginTop: "5rem" }}
+      >
+        Plant Passport Introductory Guide
+      </a>
     </div>
   );
 }
