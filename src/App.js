@@ -95,6 +95,8 @@ function App() {
       <a
         href="https://planthealthportal.defra.gov.uk/assets/uploads/Plant-Passport-Introductory-Guide.pdf"
         style={{ marginTop: "5rem" }}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         Plant Passport Introductory Guide
       </a>
