@@ -24,12 +24,23 @@ function App() {
 
     for (let x = 0; x < 2; x += 1) {
       for (let y = 0; y < 8; y += 1) {
+        // add EU flag
         doc.addImage(eu, "PNG", x * TILE_WIDTH, y * TILE_HEIGHT, 69, 45);
+
+        // draw title and letters in bold
+        doc.setFont("Times", "bold");
         doc.text("Plant Passport", x * TILE_WIDTH + 175, y * TILE_HEIGHT + 20);
-        doc.text("A " + a, x * TILE_WIDTH + 10, y * TILE_HEIGHT + 60);
-        doc.text("B " + b, x * TILE_WIDTH + 10, y * TILE_HEIGHT + 80);
-        doc.text("C " + c, x * TILE_WIDTH + 210, y * TILE_HEIGHT + 60);
-        doc.text("D " + d, x * TILE_WIDTH + 210, y * TILE_HEIGHT + 80);
+        doc.text("A ", x * TILE_WIDTH + 10, y * TILE_HEIGHT + 60);
+        doc.text("B ", x * TILE_WIDTH + 10, y * TILE_HEIGHT + 80);
+        doc.text("C ", x * TILE_WIDTH + 210, y * TILE_HEIGHT + 60);
+        doc.text("D ", x * TILE_WIDTH + 210, y * TILE_HEIGHT + 80);
+
+        // draw inputted values in regular
+        doc.setFont("Times", "regular");
+        doc.text(a, x * TILE_WIDTH + 25, y * TILE_HEIGHT + 60);
+        doc.text(b, x * TILE_WIDTH + 25, y * TILE_HEIGHT + 80);
+        doc.text(c, x * TILE_WIDTH + 225, y * TILE_HEIGHT + 60);
+        doc.text(d, x * TILE_WIDTH + 225, y * TILE_HEIGHT + 80);
       }
     }
 
