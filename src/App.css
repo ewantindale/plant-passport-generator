@@ -1,5 +1,4 @@
 .App {
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,26 +13,67 @@
   font-size: 1.5rem;
 }
 
-.App form div {
-  margin: 1rem;
-}
-
-.App form label {
-  margin-left: 1rem;
-  font-weight: bold;
-}
-
-.App form input {
-  font-size: 1.5rem;
-  border: none;
-  border-bottom: 1px solid black;
-}
-
-.App form input:focus {
-  outline: 0;
-}
-
 .generateButton {
   font-size: 1.5rem;
   padding: 1rem 2rem;
+  margin-top: 2rem;
+  background: black;
+  color: white;
+  border: 2px solid black;
+  border-radius: 1rem;
+  transition: 0.25s ease;
+}
+
+.generateButton:hover {
+  background: white;
+  color: black;
+}
+
+.guideLink {
+  margin: 5rem 0;
+}
+
+.inputField {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+}
+
+.inputField input {
+  font-size: 1.5rem;
+  border: none;
+  /* border-bottom: 1px solid black; */
+  margin-left: 0.5rem;
+  transition: 0.25s ease;
+  border: 1px solid white;
+  padding: 0.5rem;
+}
+
+.inputField input:focus {
+  outline: 0;
+  /* background: lavender; */
+  border-color: black;
+}
+
+.inputField label {
+  font-weight: bold;
+}
+
+@media (min-width: 650px) {
+  .inputRow {
+    display: flex;
+  }
+}
+
+.footer {
+  margin-top: auto;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  background: black;
+  color: white;
+}
+
+.footer a {
+  color: white;
 }
